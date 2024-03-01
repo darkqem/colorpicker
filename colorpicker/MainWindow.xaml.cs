@@ -23,6 +23,7 @@ namespace colorpicker
         {
             InitializeComponent();
             UpdateColor();
+            colorInputTextBox.Text = "Your color";
         }
 
         private void ApplyColorButton_Click(object sender, RoutedEventArgs e)
