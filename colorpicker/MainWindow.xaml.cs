@@ -87,6 +87,20 @@ namespace colorpicker
             }
         }
 
+        private void ColorPickerIconBorder_MouseLeftButtonDown(object sender, RoutedEventArgs e)
+        {
+            // Проверяем текущее состояние видимости ColorPickerBorder
+            if (ColorPickerBorder.Visibility == Visibility.Visible)
+            {
+                // Если ColorPickerBorder видим, скрываем его
+                ColorPickerBorder.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                // Если ColorPickerBorder скрыт, показываем его
+                ColorPickerBorder.Visibility = Visibility.Visible;
+            }
+        }
 
 
 
