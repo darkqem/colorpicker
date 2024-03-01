@@ -109,40 +109,45 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Border Margin="0,0,946,306" CornerRadius="15" Background="#22000000">
-        <Grid Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Vertical" Margin="10">
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="R:" VerticalAlignment="Center" Margin="5"/>
-                    <TextBox x:Name="RedTextBox" Width="40" TextChanged="ValueTextBox_TextChanged" Margin="5"  TextAlignment="Center"/>
-                    <Slider x:Name="RedSlider" Minimum="0" Maximum="255"  Margin="5" HorizontalAlignment="Stretch" ValueChanged="Slider_ValueChanged"  VerticalAlignment="Center" Style="{StaticResource Horizontal_Slider}"/>
+    <Grid>
+        <Border x:Name="ColorPickerBorder" Margin="314,351,778,116" CornerRadius="15" Background="#22000000" Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="185*"/>
+                    <RowDefinition Height="72*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Height="37">
+                        <TextBlock Text="R:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox x:Name="RedTextBox" Width="40" TextChanged="ValueTextBox_TextChanged" Margin="5"  TextAlignment="Center"/>
+                        <Slider x:Name="RedSlider" Minimum="0" Maximum="255"  Margin="5" HorizontalAlignment="Stretch" Width="105" ValueChanged="Slider_ValueChanged"  VerticalAlignment="Center" Style="{StaticResource Horizontal_Slider}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="37">
+                        <TextBlock Text="G:" VerticalAlignment="Center"  Margin="5"/>
+                        <TextBox x:Name="GreenTextBox" Text="255" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center" />
+                        <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="105" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="37">
+                        <TextBlock Text="B:" VerticalAlignment="Center"  Margin="5" />
+                        <TextBox x:Name="BlueTextBox" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center"/>
+                        <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="105" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="37">
+                        <TextBlock Text="A:" VerticalAlignment="Center"  Margin="5"/>
+                        <TextBox x:Name="AlphaTextBox" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center"/>
+                        <Slider x:Name="AlphaSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="105" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="39">
+                        <TextBlock Text="Hex:" VerticalAlignment="Center"  Margin="5"/>
+                        <TextBox x:Name="colorInputTextBox" Text="000000000" TextAlignment="Center" Width="88" Margin="5" TextChanged="HexTextBox_TextChanged"  KeyDown="ColorInputTextBox_KeyDown"/>
+                        <Button Content="Apply" Click="ApplyColorButton_Click" Margin="5,10,5,10" Width="40" Foreground="AliceBlue" Background="#22000000" TextBlock.TextAlignment="Center" Height="19" />
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="G:" VerticalAlignment="Center"  Margin="5"/>
-                    <TextBox x:Name="GreenTextBox" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center" />
-                    <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="200" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="B:" VerticalAlignment="Center"  Margin="5" />
-                    <TextBox x:Name="BlueTextBox" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center"/>
-                    <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="200" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="A:" VerticalAlignment="Center"  Margin="5"/>
-                    <TextBox x:Name="AlphaTextBox" Width="40" TextChanged="ValueTextBox_TextChanged"  Margin="5" TextAlignment="Center"/>
-                    <Slider x:Name="AlphaSlider" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" Width="200" VerticalAlignment="Center"  Margin="5" Style="{StaticResource Horizontal_Slider}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                    <TextBlock Text="Hex:" VerticalAlignment="Center"  Margin="5"/>
-                    <TextBox x:Name="colorInputTextBox" Width="200" Margin="5" TextChanged="HexTextBox_TextChanged"  KeyDown="ColorInputTextBox_KeyDown"/>
-                    <Button Content="Apply" Click="ApplyColorButton_Click" Margin="5,10,5,10" Width="40" Foreground="AliceBlue" Background="#22000000" TextBlock.TextAlignment="Center" />
-                </StackPanel>
-            </StackPanel>
-            <Rectangle x:Name="ColorRectangle" Grid.Row="1" Fill="AliceBlue" Margin="10" Height="100" Width="100"/>
+                <Rectangle x:Name="ColorRectangle" Grid.Row="1" Fill="AliceBlue" Margin="70,0,69,0" Height="50" VerticalAlignment="Center">
+                    <Rectangle.RadiusX>15</Rectangle.RadiusX>
+                    <Rectangle.RadiusY>15</Rectangle.RadiusY>
+                </Rectangle>
+
 
             </Grid>
         </Border>
@@ -155,7 +160,7 @@
                     </TransformGroup>
                 </Path.RenderTransform>
             </Path>
-            
+
         </Border>
 
 
